@@ -69,6 +69,30 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, PersonEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.PersonId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreatePersonService();
+
+            if (service.UpdatePerson(model))
+            {
+                TempData["SaveResult"] = "Your entry was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your entry could not be updated.");
+            return View(model);
+        }
+
         private PersonService CreatePersonService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
