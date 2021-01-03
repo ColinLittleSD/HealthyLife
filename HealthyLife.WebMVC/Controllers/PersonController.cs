@@ -25,21 +25,31 @@ namespace HealthyLife.WebMVC.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(PersonCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreatePersonService();
+
+            if (service.CreatePerson(model))
+            {
+                TempData["SaveResult"] = "Your entry was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Entry could not be created.");
+
+            return View(model);
+        }
+
+        private PersonService CreatePersonService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new PersonService(userId);
-
-            service.CreatePerson(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
