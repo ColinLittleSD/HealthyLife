@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HappyLife.Data\HappyLife.Data.csproj">
+      <Project>{64a7a016-41ce-464a-8406-0d154f6496df}</Project>
+      <Name>HappyLife.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HappyLife.Models\HappyLife.Models.csproj">
+      <Project>{2fb75ed7-c5f7-4eb0-909d-1eb5dbd0a8fa}</Project>
+      <Name>HappyLife.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

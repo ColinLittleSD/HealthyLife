@@ -5,23 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyLife.Data
+namespace HappyLife.Models
 {
-    public class Person
+    public class PersonDetail
     {
-        [Key]
+        
         public int PersonId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
-        [Required]
         public string Name { get; set; }
-        [Required]
         public int Weight { get; set; }
-        [Required]
-        [Display(Name="Health Goals")]
+        [Display(Name = "Health Goals")]
         public string HealthGoals { get; set; }
-        [Required]
-        [Display(Name="Date")]
+        [Display(Name = "Date")]
+        [DataType(DataType.Date)]
         public DateTime DateStarted { get; set; }
     }
 }
