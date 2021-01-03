@@ -99,5 +99,20 @@ namespace HappyLife.Services
             }
         }
 
+        public bool DeletePerson(int personId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Persons
+                        .Single(e => e.PersonId == personId && e.OwnerId == _userId);
+
+                ctx.Persons.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

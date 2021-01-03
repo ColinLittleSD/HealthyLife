@@ -93,6 +93,27 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreatePersonService();
+            var model = svc.GetPersonById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePerson(int id)
+        {
+            var service = CreatePersonService();
+            service.DeletePerson(id);
+            TempData["SaveResult"] = "Your entry was deleted";
+
+            return RedirectToAction ("Index");
+        }
+
         private PersonService CreatePersonService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
