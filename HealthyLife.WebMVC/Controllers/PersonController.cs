@@ -1,4 +1,6 @@
 ﻿using HappyLife.Models;
+using HappyLife.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,10 @@ namespace HealthyLife.WebMVC.Controllers
         // GET: Person
         public ActionResult Index()
         {
-            var model = new PersonListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PersonService(userId);
+            var model = service.GetPerson();
+
             return View(model);
         }
         public ActionResult Create()
@@ -24,11 +29,17 @@ namespace HealthyLife.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(PersonCreate model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PersonService(userId);
+
+            service.CreatePerson(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

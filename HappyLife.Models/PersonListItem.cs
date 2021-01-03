@@ -16,6 +16,7 @@ namespace HappyLife.Models
         [Display(Name="Health Goals")]
         public string HealthGoals { get; set; }
         [Display(Name ="Date")]
+        [DataType(DataType.Date)]
         public DateTime DateStarted { get; set; }
     }
 }

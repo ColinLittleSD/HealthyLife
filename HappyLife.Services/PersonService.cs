@@ -26,7 +26,8 @@ namespace HappyLife.Services
                     OwnerId = _userId,
                     Name = model.Name,
                     Weight = model.Weight,
-                    HealthGoals = model.HealthGoals
+                    HealthGoals = model.HealthGoals,
+                    DateStarted = model.DateStarted
                 };
 
             using (var ctx = new ApplicationDbContext())
