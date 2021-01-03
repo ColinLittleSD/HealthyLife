@@ -61,5 +61,25 @@ namespace HappyLife.Services
             }
         }
 
+        public PersonDetail GetPersonById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Persons
+                        .Single(e => e.PersonId == id && e.OwnerId == _userId);
+                return
+                    new PersonDetail
+                    {
+                        PersonId = entity.PersonId,
+                        Name = entity.Name,
+                        Weight = entity.Weight,
+                        HealthGoals = entity.HealthGoals,
+                        DateStarted = entity.DateStarted
+                    };
+            }
+        }
+
     }
 }
