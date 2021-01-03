@@ -53,6 +53,22 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreatePersonService();
+            var detail = service.GetPersonById(id);
+            var model =
+                new PersonEdit
+                {
+                    PersonId = detail.PersonId,
+                    Name = detail.Name,
+                    Weight = detail.Weight,
+                    HealthGoals = detail.HealthGoals,
+                    DateStarted = detail.DateStarted
+                };
+            return View(model);
+        }
+
         private PersonService CreatePersonService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

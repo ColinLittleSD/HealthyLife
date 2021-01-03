@@ -81,5 +81,23 @@ namespace HappyLife.Services
             }
         }
 
+        public bool UpdatePerson(PersonEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Persons
+                        .Single(e => e.PersonId == model.PersonId && e.OwnerId == _userId);
+
+                entity.Name = model.Name;
+                entity.Weight = model.Weight;
+                entity.HealthGoals = model.HealthGoals;
+                entity.DateStarted = model.DateStarted;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
