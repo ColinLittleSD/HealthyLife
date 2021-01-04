@@ -64,6 +64,10 @@
     <Compile Include="Migrations\202101040141449_adding-sleep.Designer.cs">
       <DependentUpon>202101040141449_adding-sleep.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101042000584_adding-exercise.cs" />
+    <Compile Include="Migrations\202101042000584_adding-exercise.Designer.cs">
+      <DependentUpon>202101042000584_adding-exercise.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101040141449_adding-sleep.resx">
       <DependentUpon>202101040141449_adding-sleep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101042000584_adding-exercise.resx">
+      <DependentUpon>202101042000584_adding-exercise.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
