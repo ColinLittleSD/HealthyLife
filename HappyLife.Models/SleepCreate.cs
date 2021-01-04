@@ -15,6 +15,9 @@ namespace HappyLife.Models
         [Required]
         [Display(Name ="What time did you wake up?")]
         public TimeSpan WakeUpTime { get; set; }
+        [Required]
         public DateTime Date { get; set; }
+        [Required]
+        public int PersonId { get; set; }
     }
 }
