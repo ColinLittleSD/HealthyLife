@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExerciseCreate.cs" />
     <Compile Include="ExerciseListItem.cs" />
     <Compile Include="PersonCreate.cs" />
     <Compile Include="PersonDetail.cs" />

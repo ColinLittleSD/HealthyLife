@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace HappyLife.Models
 {
-    public class ExerciseListItem
+    public class ExerciseCreate
     {
-        [Key]
-        public int ExerciseId { get; set; }
+        [Required]
         public string Activity { get; set; }
-        [Display(Name = "Hours spent on activity")]
+        [Required]
+        [Display(Name = "How many hours did you perform this activity?")]
         public double TimeSpentOnActivity { get; set; }
+        [Required]
         public DateTime Date { get; set; }
-
+        [Display(Name = "Person Id:")]
         public int PersonId { get; set; }
     }
 }
+
