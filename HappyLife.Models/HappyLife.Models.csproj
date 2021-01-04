@@ -60,6 +60,7 @@
     <Compile Include="PersonListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SleepCreate.cs" />
+    <Compile Include="SleepDetail.cs" />
     <Compile Include="SleepListItem.cs" />
   </ItemGroup>
   <ItemGroup>

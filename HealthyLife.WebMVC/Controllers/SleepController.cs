@@ -46,6 +46,14 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateSleepService();
+            var model = svc.GetSleepById(id);
+
+            return View(model);
+        }
+
         private SleepService CreateSleepService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

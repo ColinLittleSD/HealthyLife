@@ -61,5 +61,24 @@ namespace HappyLife.Services
                 return query.ToArray();
             }
         }
+
+        public SleepDetail GetSleepById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sleeps
+                        .Single(e => e.SleepId == id && e.OwnerId == _userId);
+                return
+                    new SleepDetail
+                    {
+                        SleepId = entity.SleepId,
+                        HoursSlept = entity.HoursSlept,
+                        WakeUpTime = entity.WakeUpTime,
+                        Date = entity.Date
+                    };
+            }
+        }
     }
 }
