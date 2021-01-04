@@ -98,5 +98,20 @@ namespace HappyLife.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteSleep(int sleepId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sleeps
+                        .Single(e => e.SleepId == sleepId && e.OwnerId == _userId);
+
+                ctx.Sleeps.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

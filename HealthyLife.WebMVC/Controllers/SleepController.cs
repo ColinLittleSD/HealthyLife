@@ -96,6 +96,29 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateSleepService();
+            var model = svc.GetSleepById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateSleepService();
+
+            service.DeleteSleep(id);
+
+            TempData["SaveResult"] = "Your entry was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         private SleepService CreateSleepService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
