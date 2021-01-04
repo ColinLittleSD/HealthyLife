@@ -31,17 +31,26 @@ namespace HealthyLife.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(ExerciseCreate model)
         {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
+            if (!ModelState.IsValid) return View(model);
 
+            var service = CreateExerciseService();
+
+            if (service.CreateExercise(model))
+            {
+                TempData["SaveResult"] = "Your entry was created.";
+                return RedirectToAction("Index");
+            };
+
+            ModelState.AddModelError("", "Entry could not be created.");
+
+            return View(model);
+        }
+
+        private ExerciseService CreateExerciseService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ExerciseService(userId);
-
-            service.CreateExercise(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
