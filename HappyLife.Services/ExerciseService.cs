@@ -60,5 +60,24 @@ namespace HappyLife.Services
                 return query.ToArray();
             }
         }
+
+        public ExerciseDetail GetExerciseById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Exercises
+                        .Single(e => e.ExerciseId == id && e.OwnerId == _userId);
+                return
+                    new ExerciseDetail
+                    {
+                        ExerciseId = entity.ExerciseId,
+                        Activity = entity.Activity,
+                        TimeSpentOnActivity = entity.TimeSpentOnActivity,
+                        Date= entity.Date
+                    };
+            }
+        }
     }
 }

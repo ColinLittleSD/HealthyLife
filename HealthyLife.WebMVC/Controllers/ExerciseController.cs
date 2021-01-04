@@ -46,6 +46,14 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateExerciseService();
+            var model = svc.GetExerciseById(id);
+
+            return View(model);
+        }
+
         private ExerciseService CreateExerciseService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
