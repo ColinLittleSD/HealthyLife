@@ -54,10 +54,58 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateSleepService();
+            var PersonService = CreatePersonService();
+            var detail = service.GetSleepById(id);
+            var det = PersonService.GetPersonById(id);
+            var model =
+                new SleepEdit
+                {
+                    SleepId = detail.SleepId,
+                    HoursSlept = detail.HoursSlept,
+                    WakeUpTime = detail.WakeUpTime,
+                    Date = detail.Date,
+                    PersonId = det.PersonId
+                };
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, SleepEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.SleepId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateSleepService();
+
+            if (service.UpdateSleep(model))
+            {
+                TempData["SaveResult"] = "Your entry was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your entry could not be updated.");
+            return View(model);
+        }
+
         private SleepService CreateSleepService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new SleepService(userId);
+            return service;
+        }
+        private PersonService CreatePersonService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new PersonService(userId);
             return service;
         }
     }

@@ -80,5 +80,23 @@ namespace HappyLife.Services
                     };
             }
         }
+
+        public bool UpdateSleep(SleepEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Sleeps
+                        .Single(e => e.SleepId == model.SleepId && e.OwnerId == _userId);
+
+                entity.HoursSlept = model.HoursSlept;
+                entity.WakeUpTime = model.WakeUpTime;
+                entity.Date = model.Date;
+                entity.PersonId = model.PersonId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
