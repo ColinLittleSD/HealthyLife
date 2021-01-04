@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace HappyLife.Models
 {
-    public class SleepListItem
+    public class SleepCreate
     {
-        [Key]
-        public int SleepId { get; set; }
-       
-        [Display(Name = "How long did you sleep?")]
+        [Required]
+        [Display(Name ="How long did you sleep?")]
         public int HoursSlept { get; set; }
-        [Display(Name = "What time did you wake up?")]
+        [Required]
+        [Display(Name ="What time did you wake up?")]
         public TimeSpan WakeUpTime { get; set; }
         public DateTime Date { get; set; }
     }

@@ -18,7 +18,7 @@ namespace HappyLife.Data
         [Display(Name = "How long did you sleep?")]
         public int HoursSlept { get; set; }
         [Required]
-        [Display(Name = "Time woken up")]
+        [Display(Name = "What time did you wake up?")]
         public TimeSpan WakeUpTime { get; set; }
         [Required]
         public DateTime Date { get; set; }
