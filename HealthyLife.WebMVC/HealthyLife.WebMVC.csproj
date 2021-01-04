@@ -243,6 +243,7 @@
     <Content Include="Views\Person\Delete.cshtml" />
     <Content Include="Views\Sleep\Index.cshtml" />
     <Content Include="Views\Sleep\Create.cshtml" />
+    <Content Include="Views\Sleep\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
