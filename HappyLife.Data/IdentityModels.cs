@@ -33,6 +33,7 @@ namespace HealthyLife.Data
             return new ApplicationDbContext();
         }
         public DbSet<Person> Persons { get; set; } 
+        public DbSet<Sleep> Sleeps { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
