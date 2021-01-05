@@ -15,7 +15,8 @@ namespace HappyLife.Models
         [Display(Name = "Hours spent on activity")]
         public double TimeSpentOnActivity { get; set; }
         public DateTime Date { get; set; }
+        [Display(Name = "User name")]
+        public string PersonName { get; set; }
 
-        public int PersonId { get; set; }
     }
 }
