@@ -9,52 +9,51 @@ using System.Threading.Tasks;
 
 namespace HappyLife.Services
 {
-    public class SleepService
+    public class ExerciseService
     {
         private readonly Guid _userId;
 
-        public SleepService(Guid userId)
+        public ExerciseService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateSleep(SleepCreate model)
+        public bool CreateExercise(ExerciseCreate model)
         {
             var entity =
-                new Sleep()
+                new Exercise()
                 {
                     OwnerId = _userId,
-                    HoursSlept = model.HoursSlept,
-                    WakeUpTime = model.WakeUpTime,
+                    Activity = model.Activity,
                     Date = model.Date,
+                    TimeSpentOnActivity = model.TimeSpentOnActivity,
                     PersonId = model.PersonId
                 };
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Sleeps.Add(entity);
+                ctx.Exercises.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<SleepListItem> GetSleeps()
+        public IEnumerable<ExerciseListItem> GetExercises()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
-                        .Sleeps
+                        .Exercises
                         .Where(e => e.OwnerId == _userId)
                         .Select(
                             e =>
-                                new SleepListItem
+                                new ExerciseListItem
                                 {
-                                    SleepId = e.SleepId,
-                                    HoursSlept = e.HoursSlept,
-                                    WakeUpTime = e.WakeUpTime,
+                                    ExerciseId = e.ExerciseId,
+                                    Activity = e.Activity,
+                                    TimeSpentOnActivity = e.TimeSpentOnActivity,
                                     Date = e.Date,
                                     PersonName = e.Person.Name
-                                    
                                 }
                         );
 
@@ -62,20 +61,20 @@ namespace HappyLife.Services
             }
         }
 
-        public SleepDetail GetSleepById(int id)
+        public ExerciseDetail GetExerciseById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Sleeps
-                        .Single(e => e.SleepId == id && e.OwnerId == _userId);
+                        .Exercises
+                        .Single(e => e.ExerciseId == id && e.OwnerId == _userId);
                 return
-                    new SleepDetail
+                    new ExerciseDetail
                     {
-                        SleepId = entity.SleepId,
-                        HoursSlept = entity.HoursSlept,
-                        WakeUpTime = entity.WakeUpTime,
+                        ExerciseId = entity.ExerciseId,
+                        Activity = entity.Activity,
+                        TimeSpentOnActivity = entity.TimeSpentOnActivity,
                         Date = entity.Date,
                         PersonId = entity.PersonId,
                         PersonName = entity.Person.Name
@@ -83,33 +82,34 @@ namespace HappyLife.Services
             }
         }
 
-        public bool UpdateSleep(SleepEdit model)
+        public bool UpdateExercise(ExerciseEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Sleeps
-                        .Single(e => e.SleepId == model.SleepId && e.OwnerId == _userId);
+                        .Exercises
+                        .Single(e => e.ExerciseId == model.ExerciseId && e.OwnerId == _userId);
 
-                entity.HoursSlept = model.HoursSlept;
-                entity.WakeUpTime = model.WakeUpTime;
+                entity.Activity = model.Activity;
+                entity.TimeSpentOnActivity = model.TimeSpentOnActivity;
                 entity.Date = model.Date;
                 entity.PersonId = model.PersonId;
+
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteSleep(int sleepId)
+        public bool DeleteExercise(int exerciseId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Sleeps
-                        .Single(e => e.SleepId == sleepId && e.OwnerId == _userId);
+                        .Exercises
+                        .Single(e => e.ExerciseId == exerciseId && e.OwnerId == _userId);
 
-                ctx.Sleeps.Remove(entity);
+                ctx.Exercises.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

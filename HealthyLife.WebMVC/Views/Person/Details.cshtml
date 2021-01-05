@@ -50,6 +50,32 @@
             @Html.DisplayFor(model => model.DateStarted)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercises)
+        </dt>
+
+        @foreach (var exercise in Model.Exercises)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => exercise.Activity) |
+                @Html.DisplayFor(modelItem => exercise.TimeSpentOnActivity) |
+                @Html.DisplayFor(modelItem => exercise.Date) |
+            </dd>
+        }
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sleeps)
+        </dt>
+
+        @foreach (var sleep in Model.Sleeps)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => sleep.HoursSlept) |
+                @Html.DisplayFor(modelItem => sleep.WakeUpTime) |
+                @Html.DisplayFor(modelItem => sleep.Date) |
+            </dd>
+        }
+
     </dl>
 </div>
 <p>

@@ -10,6 +10,7 @@
     <h4>SleepDetail</h4>
     <hr />
     <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.PersonId)
         <dt>
             @Html.DisplayNameFor(model => model.SleepId)
         </dt>
@@ -24,6 +25,14 @@
 
         <dd>
             @Html.DisplayFor(model => model.HoursSlept)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonName)
         </dd>
 
         <dt>

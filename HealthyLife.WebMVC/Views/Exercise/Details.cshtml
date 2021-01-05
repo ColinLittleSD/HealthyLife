@@ -1,0 +1,59 @@
+﻿@model HappyLife.Models.ExerciseDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ExerciseDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @Html.HiddenFor(model => model.PersonId)
+        <dt>
+            @Html.DisplayNameFor(model => model.ExerciseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExerciseId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Activity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Activity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TimeSpentOnActivity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TimeSpentOnActivity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ExerciseId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

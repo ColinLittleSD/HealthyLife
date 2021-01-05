@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New Entry", "Create")
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
@@ -33,7 +33,10 @@
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PersonId)
+            @Html.DisplayNameFor(model => model.SleepId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonName)
         </th>
         <th></th>
     </tr>
@@ -48,10 +51,13 @@
                 @Html.DisplayFor(modelItem => item.WakeUpTime)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.PersonName)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PersonId)
+                @Html.DisplayFor(modelItem => item.SleepId)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.SleepId }) |

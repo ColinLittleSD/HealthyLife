@@ -8,24 +8,21 @@ using System.Threading.Tasks;
 
 namespace HappyLife.Data
 {
-    public class Sleep
+    public class Exercise
     {
         [Key]
-        public int SleepId { get; set; }
+        public int ExerciseId { get; set; }
         [Required]
         public Guid OwnerId { get; set; }
         [Required]
-        [Display(Name = "How long did you sleep?")]
-        public int HoursSlept { get; set; }
+        public string Activity { get; set; }
         [Required]
-        [Display(Name = "What time did you wake up?")]
-        public TimeSpan WakeUpTime { get; set; }
+        public double TimeSpentOnActivity { get; set; }
         [Required]
         public DateTime Date { get; set; }
 
         [ForeignKey(nameof(Person))]
         public int PersonId { get; set; }
         public virtual Person Person { get; set; }
-
     }
 }
