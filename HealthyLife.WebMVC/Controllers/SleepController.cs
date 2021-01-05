@@ -1,5 +1,6 @@
 ﻿using HappyLife.Models;
 using HappyLife.Services;
+using HealthyLife.Data;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace HealthyLife.WebMVC.Controllers
     [Authorize]
     public class SleepController : Controller
     {
+        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Sleep
         public ActionResult Index()
         {
@@ -24,6 +26,7 @@ namespace HealthyLife.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name");
             return View();
         }
 
@@ -43,6 +46,8 @@ namespace HealthyLife.WebMVC.Controllers
 
             ModelState.AddModelError("", "Entry could not be created.");
 
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
+
             return View(model);
         }
 
@@ -57,9 +62,8 @@ namespace HealthyLife.WebMVC.Controllers
         public ActionResult Edit(int id)
         {
             var service = CreateSleepService();
-            var PersonService = CreatePersonService();
             var detail = service.GetSleepById(id);
-            var det = PersonService.GetPersonById(id);
+         
             var model =
                 new SleepEdit
                 {
@@ -67,8 +71,10 @@ namespace HealthyLife.WebMVC.Controllers
                     HoursSlept = detail.HoursSlept,
                     WakeUpTime = detail.WakeUpTime,
                     Date = detail.Date,
-                    PersonId = det.PersonId
+                    PersonId = detail.PersonId
                 };
+
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
             return View(model);
         }
 
@@ -93,6 +99,8 @@ namespace HealthyLife.WebMVC.Controllers
             }
 
             ModelState.AddModelError("", "Your entry could not be updated.");
+
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
             return View(model);
         }
 
@@ -125,11 +133,6 @@ namespace HealthyLife.WebMVC.Controllers
             var service = new SleepService(userId);
             return service;
         }
-        private PersonService CreatePersonService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new PersonService(userId);
-            return service;
-        }
+        
     }
 }

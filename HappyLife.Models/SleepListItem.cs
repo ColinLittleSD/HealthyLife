@@ -9,7 +9,7 @@ namespace HappyLife.Models
 {
     public class SleepListItem
     {
-        [Key]
+        
         public int SleepId { get; set; }
        
         [Display(Name = "How long did you sleep?")]
@@ -17,6 +17,9 @@ namespace HappyLife.Models
         [Display(Name = "What time did you wake up?")]
         public TimeSpan WakeUpTime { get; set; }
         public DateTime Date { get; set; }
-        public int PersonId { get; set; }
+        [Display(Name = "User name")]
+        public string PersonName { get; set; }
+
+
     }
 }

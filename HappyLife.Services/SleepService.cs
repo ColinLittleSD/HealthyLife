@@ -53,7 +53,7 @@ namespace HappyLife.Services
                                     HoursSlept = e.HoursSlept,
                                     WakeUpTime = e.WakeUpTime,
                                     Date = e.Date,
-                                    PersonId = e.PersonId
+                                    PersonName = e.Person.Name
                                     
                                 }
                         );
@@ -76,7 +76,9 @@ namespace HappyLife.Services
                         SleepId = entity.SleepId,
                         HoursSlept = entity.HoursSlept,
                         WakeUpTime = entity.WakeUpTime,
-                        Date = entity.Date
+                        Date = entity.Date,
+                        PersonId = entity.PersonId,
+                        PersonName = entity.Person.Name
                     };
             }
         }
@@ -94,7 +96,6 @@ namespace HappyLife.Services
                 entity.WakeUpTime = model.WakeUpTime;
                 entity.Date = model.Date;
                 entity.PersonId = model.PersonId;
-
                 return ctx.SaveChanges() == 1;
             }
         }

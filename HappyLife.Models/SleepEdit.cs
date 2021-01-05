@@ -16,5 +16,6 @@ namespace HappyLife.Models
         public TimeSpan WakeUpTime { get; set; }
         public DateTime Date { get; set; }
         public int SleepId { get; set; }
+        
     }
 }
