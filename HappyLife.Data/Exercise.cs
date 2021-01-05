@@ -21,8 +21,8 @@ namespace HappyLife.Data
         [Required]
         public DateTime Date { get; set; }
 
+        [ForeignKey(nameof(Person))]
         public int PersonId { get; set; }
-        [ForeignKey(nameof(PersonId))]
         public virtual Person Person { get; set; }
     }
 }

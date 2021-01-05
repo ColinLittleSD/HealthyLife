@@ -79,5 +79,38 @@ namespace HappyLife.Services
                     };
             }
         }
+
+        public bool UpdateExercise(ExerciseEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Exercises
+                        .Single(e => e.ExerciseId == model.ExerciseId && e.OwnerId == _userId);
+
+                entity.Activity = model.Activity;
+                entity.TimeSpentOnActivity = model.TimeSpentOnActivity;
+                entity.Date = model.Date;
+                entity.PersonId = model.PersonId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteExercise(int exerciseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Exercises
+                        .Single(e => e.ExerciseId == exerciseId && e.OwnerId == _userId);
+
+                ctx.Exercises.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

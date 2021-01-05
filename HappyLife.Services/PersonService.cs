@@ -76,7 +76,23 @@ namespace HappyLife.Services
                         Name = entity.Name,
                         Weight = entity.Weight,
                         HealthGoals = entity.HealthGoals,
-                        DateStarted = entity.DateStarted
+                        DateStarted = entity.DateStarted,
+                        Exercises = entity.Exercises.Select(n => new ExerciseListItem()
+                        {
+                            ExerciseId = n.ExerciseId,
+                            Activity = n.Activity,
+                            TimeSpentOnActivity = n.TimeSpentOnActivity,
+                            Date = n.Date
+                        }).ToList(),
+                        Sleeps = entity.Sleeps.Select(n => new SleepListItem()
+                        {
+                            SleepId = n.SleepId,
+                            HoursSlept = n.HoursSlept,
+                            WakeUpTime = n.WakeUpTime,
+                            Date = n.Date
+                        }).ToList()
+                        
+                        
                     };
             }
         }

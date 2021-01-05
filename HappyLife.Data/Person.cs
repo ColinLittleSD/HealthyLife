@@ -23,5 +23,8 @@ namespace HappyLife.Data
         [Required]
         [Display(Name="Date")]
         public DateTime DateStarted { get; set; }
+
+        public virtual List<Exercise> Exercises { get; set; } = new List<Exercise>();
+        public virtual List<Sleep> Sleeps { get; set; } = new List<Sleep>();
     }
 }

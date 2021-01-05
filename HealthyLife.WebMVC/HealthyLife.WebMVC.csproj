@@ -250,6 +250,8 @@
     <Content Include="Views\Exercise\Index.cshtml" />
     <Content Include="Views\Exercise\Create.cshtml" />
     <Content Include="Views\Exercise\Details.cshtml" />
+    <Content Include="Views\Exercise\Edit.cshtml" />
+    <Content Include="Views\Exercise\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

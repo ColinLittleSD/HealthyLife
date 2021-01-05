@@ -18,5 +18,9 @@ namespace HappyLife.Models
         [Display(Name = "Date")]
         [DataType(DataType.Date)]
         public DateTime DateStarted { get; set; }
+
+        [Display(Name ="List of sleep data ")]
+        public List<SleepListItem> Sleeps { get; set; } = new List<SleepListItem>();
+        public List<ExerciseListItem> Exercises { get; set; } = new List<ExerciseListItem>();
     }
 }

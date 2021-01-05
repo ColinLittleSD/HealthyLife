@@ -105,7 +105,7 @@ namespace HealthyLife.WebMVC.Controllers
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeletePerson(int id)
+        public ActionResult DeletePost(int id)
         {
             var service = CreatePersonService();
             service.DeletePerson(id);

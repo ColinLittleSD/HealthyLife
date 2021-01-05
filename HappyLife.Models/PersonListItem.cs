@@ -9,7 +9,6 @@ namespace HappyLife.Models
 {
     public class PersonListItem
     {
-        [Key]
         public int PersonId { get; set; }
         public string Name { get; set; }
         public int Weight { get; set; }
