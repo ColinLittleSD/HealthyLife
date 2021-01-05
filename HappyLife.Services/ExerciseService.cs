@@ -53,7 +53,7 @@ namespace HappyLife.Services
                                     Activity = e.Activity,
                                     TimeSpentOnActivity = e.TimeSpentOnActivity,
                                     Date = e.Date,
-                                    PersonId = e.PersonId
+                                    PersonName = e.Person.Name
                                 }
                         );
 
@@ -75,7 +75,9 @@ namespace HappyLife.Services
                         ExerciseId = entity.ExerciseId,
                         Activity = entity.Activity,
                         TimeSpentOnActivity = entity.TimeSpentOnActivity,
-                        Date= entity.Date
+                        Date = entity.Date,
+                        PersonId = entity.PersonId,
+                        PersonName = entity.Person.Name
                     };
             }
         }
