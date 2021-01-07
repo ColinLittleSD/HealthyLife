@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diet.cs" />
     <Compile Include="Exercise.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202101021828103_InitialCreate.cs" />
