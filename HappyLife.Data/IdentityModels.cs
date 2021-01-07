@@ -35,6 +35,7 @@ namespace HealthyLife.Data
         public DbSet<Person> Persons { get; set; } 
         public DbSet<Sleep> Sleeps { get; set; }
         public DbSet<Exercise> Exercises { get; set; }
+        public DbSet<Diet> Diets { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

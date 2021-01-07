@@ -1,4 +1,5 @@
 ﻿using HappyLife.Models;
+using HealthyLife.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace HealthyLife.WebMVC.Controllers
     [Authorize]
     public class DietController : Controller
     {
+        private ApplicationDbContext _db = new ApplicationDbContext();
         // GET: Diet
         public ActionResult Index()
         {
@@ -19,7 +21,19 @@ namespace HealthyLife.WebMVC.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.PersonId = new SelectList(_db.Exercises, "PersonId", "Name");
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(DietCreate model)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(model);
         }
     }
 }
