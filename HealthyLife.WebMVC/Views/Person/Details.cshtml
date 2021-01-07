@@ -76,6 +76,23 @@
             </dd>
         }
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Diets)
+        </dt>
+
+        @foreach (var diet in Model.Diets)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => diet.Breakfast) |
+                @Html.DisplayFor(modelItem => diet.Lunch) |
+                @Html.DisplayFor(modelItem => diet.Dinner) |
+                @Html.DisplayFor(modelItem => diet.Snacks) |
+                @Html.DisplayFor(modelItem => diet.Liquids) |
+                @Html.DisplayFor(modelItem => diet.Date) |
+            </dd>
+        }
+
+
     </dl>
 </div>
 <p>

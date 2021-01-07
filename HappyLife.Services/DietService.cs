@@ -88,5 +88,39 @@ namespace HappyLife.Services
                     };
             }
         }
+        public bool UpdateDiet(DietEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Diets
+                        .Single(e => e.DietId == model.DietId && e.OwnerId == _userId);
+
+                entity.Breakfast = model.Breakfast;
+                entity.Lunch = model.Lunch;
+                entity.Dinner = model.Dinner;
+                entity.Snacks = model.Snacks;
+                entity.Liquids = model.Liquids;
+                entity.Date = model.Date;
+                entity.PersonId = model.PersonId;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteDiet(int dietId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Diets
+                        .Single(e => e.DietId == dietId && e.OwnerId == _userId);
+
+                ctx.Diets.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

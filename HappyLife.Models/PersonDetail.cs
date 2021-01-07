@@ -22,5 +22,6 @@ namespace HappyLife.Models
         [Display(Name ="List of sleep data ")]
         public List<SleepListItem> Sleeps { get; set; } = new List<SleepListItem>();
         public List<ExerciseListItem> Exercises { get; set; } = new List<ExerciseListItem>();
+        public List<DietListItem> Diets { get; set; } = new List<DietListItem>();
     }
 }
