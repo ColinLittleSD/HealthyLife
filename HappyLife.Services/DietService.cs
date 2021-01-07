@@ -65,5 +65,28 @@ namespace HappyLife.Services
                 return query.ToArray();
             }
         }
+        public DietDetail GetDietById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Diets
+                        .Single(e => e.DietId == id && e.OwnerId == _userId);
+                return
+                    new DietDetail
+                    {
+                        DietId = entity.DietId,
+                        Breakfast = entity.Breakfast,
+                        Lunch = entity.Lunch,
+                        Dinner = entity.Dinner,
+                        Snacks = entity.Snacks,
+                        Liquids = entity.Liquids,
+                        Date = entity.Date,
+                        PersonId = entity.PersonId,
+                        PersonName = entity.Person.Name
+                    };
+            }
+        }
     }
 }

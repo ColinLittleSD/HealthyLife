@@ -49,6 +49,13 @@ namespace HealthyLife.WebMVC.Controllers
 
             return View(model);
         }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateDietService();
+            var model = svc.GetDietById(id);
+
+            return View(model);
+        }
 
         private DietService CreateDietService()
         {
