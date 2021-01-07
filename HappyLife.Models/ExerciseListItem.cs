@@ -9,7 +9,7 @@ namespace HappyLife.Models
 {
     public class ExerciseListItem
     {
-        [Key]
+        
         public int ExerciseId { get; set; }
         public string Activity { get; set; }
         [Display(Name = "Hours spent on activity")]

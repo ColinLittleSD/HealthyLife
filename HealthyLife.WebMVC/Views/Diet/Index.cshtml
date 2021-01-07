@@ -1,0 +1,75 @@
+﻿@model IEnumerable<HappyLife.Models.DietListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DietId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Breakfast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lunch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dinner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Snacks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Liquids)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DietId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PersonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Breakfast)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lunch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dinner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Snacks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Liquids)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
