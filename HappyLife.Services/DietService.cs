@@ -18,7 +18,7 @@ namespace HappyLife.Services
             _userId = userId;
         }
 
-        public bool CreateNote(DietCreate model)
+        public bool CreateDiet(DietCreate model)
         {
             var entity =
                 new Diet()

@@ -10,8 +10,6 @@ namespace HappyLife.Models
     public class DietCreate
     {
         [Required]
-        public string PersonName { get; set; }
-        [Required]
         public string Breakfast { get; set; }
         [Required]
         public string Lunch { get; set; }
