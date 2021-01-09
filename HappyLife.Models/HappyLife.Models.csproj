@@ -54,30 +54,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DietCreate.cs" />
-    <Compile Include="DietDetail.cs" />
-    <Compile Include="DietEdit.cs" />
-    <Compile Include="DietListItem.cs" />
-    <Compile Include="ExerciseCreate.cs" />
-    <Compile Include="ExerciseDetail.cs" />
-    <Compile Include="ExerciseEdit.cs" />
-    <Compile Include="ExerciseListItem.cs" />
-    <Compile Include="PersonCreate.cs" />
-    <Compile Include="PersonDetail.cs" />
-    <Compile Include="PersonEdit.cs" />
-    <Compile Include="PersonListItem.cs" />
+    <Compile Include="dietmodels\DietCreate.cs" />
+    <Compile Include="dietmodels\DietDetail.cs" />
+    <Compile Include="dietmodels\DietEdit.cs" />
+    <Compile Include="dietmodels\DietListItem.cs" />
+    <Compile Include="exercisemodels\ExerciseCreate.cs" />
+    <Compile Include="exercisemodels\ExerciseDetail.cs" />
+    <Compile Include="exercisemodels\ExerciseEdit.cs" />
+    <Compile Include="exercisemodels\ExerciseListItem.cs" />
+    <Compile Include="HappinessListItem.cs" />
+    <Compile Include="personmodels\PersonCreate.cs" />
+    <Compile Include="personmodels\PersonDetail.cs" />
+    <Compile Include="personmodels\PersonEdit.cs" />
+    <Compile Include="personmodels\PersonListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SleepCreate.cs" />
-    <Compile Include="SleepDetail.cs" />
-    <Compile Include="SleepEdit.cs" />
-    <Compile Include="SleepListItem.cs" />
+    <Compile Include="sleepmodels\SleepCreate.cs" />
+    <Compile Include="sleepmodels\SleepDetail.cs" />
+    <Compile Include="sleepmodels\SleepEdit.cs" />
+    <Compile Include="sleepmodels\SleepListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="personmodels\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
