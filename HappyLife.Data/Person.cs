@@ -27,5 +27,6 @@ namespace HappyLife.Data
         public virtual List<Exercise> Exercises { get; set; } = new List<Exercise>();
         public virtual List<Sleep> Sleeps { get; set; } = new List<Sleep>();
         public virtual List<Diet> Diets { get; set; } = new List<Diet>();
+        public virtual List<Happiness> Happinesses { get; set; } = new List<Happiness>();
     }
 }

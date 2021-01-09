@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Diet.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="Happiness.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202101021828103_InitialCreate.cs" />
     <Compile Include="Migrations\202101021828103_InitialCreate.Designer.cs">
