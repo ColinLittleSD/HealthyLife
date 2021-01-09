@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202101042000584_adding-exercise.Designer.cs">
       <DependentUpon>202101042000584_adding-exercise.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101071543183_adding-diet.cs" />
+    <Compile Include="Migrations\202101071543183_adding-diet.Designer.cs">
+      <DependentUpon>202101071543183_adding-diet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101042000584_adding-exercise.resx">
       <DependentUpon>202101042000584_adding-exercise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071543183_adding-diet.resx">
+      <DependentUpon>202101071543183_adding-diet.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

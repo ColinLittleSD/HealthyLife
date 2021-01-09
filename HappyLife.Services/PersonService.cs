@@ -90,9 +90,18 @@ namespace HappyLife.Services
                             HoursSlept = n.HoursSlept,
                             WakeUpTime = n.WakeUpTime,
                             Date = n.Date
+                        }).ToList(),
+                        Diets = entity.Diets.Select(n => new DietListItem()
+                        {
+                            DietId = n.DietId,
+                            Breakfast = n.Breakfast,
+                            Lunch = n.Lunch,
+                            Dinner = n.Dinner,
+                            Snacks = n.Snacks,
+                            Liquids = n.Liquids,
+                            Date = n.Date
                         }).ToList()
-                        
-                        
+
                     };
             }
         }

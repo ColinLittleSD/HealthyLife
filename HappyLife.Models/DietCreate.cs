@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyLife.Data
+namespace HappyLife.Models
 {
-    public class Diet
+    public class DietCreate
     {
-        [Key]
-        public int DietId { get; set; }
-        [Required]
-        public Guid OwnerId { get; set; }
         [Required]
         public string Breakfast { get; set; }
         [Required]
@@ -26,10 +21,7 @@ namespace HappyLife.Data
         public string Liquids { get; set; }
         [Required]
         public DateTime Date { get; set; }
-
-        [ForeignKey(nameof(Person))]
+        [Required]
         public int PersonId { get; set; }
-        public virtual Person Person { get; set; }
-
     }
 }

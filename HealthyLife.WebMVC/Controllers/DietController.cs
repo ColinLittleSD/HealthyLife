@@ -11,15 +11,15 @@ using System.Web.Mvc;
 namespace HealthyLife.WebMVC.Controllers
 {
     [Authorize]
-    public class ExerciseController : Controller
+    public class DietController : Controller
     {
         private ApplicationDbContext _db = new ApplicationDbContext();
-        // GET: Exercise
+        // GET: Diet
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ExerciseService(userId);
-            var model = service.GetExercises();
+            var service = new DietService(userId);
+            var model = service.GetDiets();
 
             return View(model);
         }
@@ -32,13 +32,13 @@ namespace HealthyLife.WebMVC.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ExerciseCreate model)
+        public ActionResult Create(DietCreate model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            var service = CreateExerciseService();
+            var service = CreateDietService();
 
-            if (service.CreateExercise(model))
+            if (service.CreateDiet(model))
             {
                 TempData["SaveResult"] = "Your entry was created.";
                 return RedirectToAction("Index");
@@ -49,26 +49,27 @@ namespace HealthyLife.WebMVC.Controllers
 
             return View(model);
         }
-
         public ActionResult Details(int id)
         {
-            var svc = CreateExerciseService();
-            var model = svc.GetExerciseById(id);
+            var svc = CreateDietService();
+            var model = svc.GetDietById(id);
 
             return View(model);
         }
-
         public ActionResult Edit(int id)
         {
-            var service = CreateExerciseService();
-            var detail = service.GetExerciseById(id);
-            
+            var service = CreateDietService();
+            var detail = service.GetDietById(id);
+
             var model =
-                new ExerciseEdit
+                new DietEdit
                 {
-                    ExerciseId = detail.ExerciseId,
-                    Activity = detail.Activity,
-                    TimeSpentOnActivity = detail.TimeSpentOnActivity,
+                    DietId = detail.DietId,
+                    Breakfast = detail.Breakfast,
+                    Lunch = detail.Lunch,
+                    Dinner = detail.Dinner,
+                    Snacks = detail.Snacks,
+                    Liquids = detail.Liquids,
                     Date = detail.Date,
                     PersonId = detail.PersonId
                 };
@@ -76,22 +77,21 @@ namespace HealthyLife.WebMVC.Controllers
             ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, ExerciseEdit model)
+        public ActionResult Edit(int id, DietEdit model)
         {
             if (!ModelState.IsValid) return View(model);
 
-            if (model.ExerciseId != id)
+            if (model.DietId != id)
             {
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
 
-            var service = CreateExerciseService();
+            var service = CreateDietService();
 
-            if (service.UpdateExercise(model))
+            if (service.UpdateDiet(model))
             {
                 TempData["SaveResult"] = "Your entry was updated.";
                 return RedirectToAction("Index");
@@ -105,31 +105,29 @@ namespace HealthyLife.WebMVC.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var svc = CreateExerciseService();
-            var model = svc.GetExerciseById(id);
+            var svc = CreateDietService();
+            var model = svc.GetDietById(id);
 
             return View(model);
         }
-
         [HttpPost]
         [ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeletePost(int id)
         {
-            var service = CreateExerciseService();
+            var service = CreateDietService();
 
-            service.DeleteExercise(id);
+            service.DeleteDiet(id);
 
             TempData["SaveResult"] = "Your entry was deleted";
 
             return RedirectToAction("Index");
         }
 
-
-        private ExerciseService CreateExerciseService()
+        private DietService CreateDietService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
-            var service = new ExerciseService(userId);
+            var service = new DietService(userId);
             return service;
         }
     }
