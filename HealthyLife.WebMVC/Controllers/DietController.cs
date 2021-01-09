@@ -26,7 +26,7 @@ namespace HealthyLife.WebMVC.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.PersonId = new SelectList(_db.Exercises, "PersonId", "Name");
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name");
             return View();
         }
 
@@ -45,7 +45,7 @@ namespace HealthyLife.WebMVC.Controllers
             };
 
             ModelState.AddModelError("", "Entry could not be created.");
-            ViewBag.PersonId = new SelectList(_db.Diets, "PersonId", "Name");
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
 
             return View(model);
         }
