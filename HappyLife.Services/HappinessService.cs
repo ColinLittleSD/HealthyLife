@@ -60,5 +60,26 @@ namespace HappyLife.Services
                 return query.ToArray();
             }
         }
+
+        public HappinessDetail GetHappinessById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Happinesses
+                        .Single(e => e.HappinessId == id && e.OwnerId == _userId);
+                return
+                    new HappinessDetail
+                    {
+                        HappinessId = entity.HappinessId,
+                        HappinessLevel = entity.HappinessLevel,
+                        EmotionNotes = entity.EmotionNotes,
+                        Date = entity.Date,
+                        PersonId = entity.PersonId,
+                        PersonName = entity.Person.Name
+                    };
+            }
+        }
     }
 }

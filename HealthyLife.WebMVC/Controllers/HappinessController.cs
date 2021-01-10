@@ -52,6 +52,14 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Details(int id)
+        {
+            var svc = CreateHappinessService();
+            var model = svc.GetHappinessById(id);
+
+            return View(model);
+        }
+
         private HappinessService CreateHappinessService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

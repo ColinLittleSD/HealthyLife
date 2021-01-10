@@ -261,6 +261,7 @@
     <Content Include="Views\Diet\Delete.cshtml" />
     <Content Include="Views\Happiness\Index.cshtml" />
     <Content Include="Views\Happiness\Create.cshtml" />
+    <Content Include="Views\Happiness\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
