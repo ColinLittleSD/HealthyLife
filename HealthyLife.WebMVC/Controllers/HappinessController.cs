@@ -60,6 +60,25 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateHappinessService();
+            var detail = service.GetHappinessById(id);
+
+            var model =
+                new HappinessEdit
+                {
+                    HappinessId = detail.HappinessId,
+                    HappinessLevel = detail.HappinessLevel,
+                    EmotionNotes = detail.EmotionNotes,
+                    Date = detail.Date,
+                    PersonId = detail.PersonId
+                };
+
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
+            return View(model);
+        }
+
         private HappinessService CreateHappinessService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

@@ -262,6 +262,7 @@
     <Content Include="Views\Happiness\Index.cshtml" />
     <Content Include="Views\Happiness\Create.cshtml" />
     <Content Include="Views\Happiness\Details.cshtml" />
+    <Content Include="Views\Happiness\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
