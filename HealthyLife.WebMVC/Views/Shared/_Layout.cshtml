@@ -38,6 +38,10 @@
                     {
                         <li>@Html.ActionLink("Diet", "Index", "Diet")</li>
                     }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Notes", "Index", "Note")</li>
+                    }
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>

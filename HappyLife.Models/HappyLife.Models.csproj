@@ -62,7 +62,8 @@
     <Compile Include="exercisemodels\ExerciseDetail.cs" />
     <Compile Include="exercisemodels\ExerciseEdit.cs" />
     <Compile Include="exercisemodels\ExerciseListItem.cs" />
-    <Compile Include="HappinessListItem.cs" />
+    <Compile Include="happinessmodels\HappinessCreate.cs" />
+    <Compile Include="happinessmodels\HappinessListItem.cs" />
     <Compile Include="personmodels\PersonCreate.cs" />
     <Compile Include="personmodels\PersonDetail.cs" />
     <Compile Include="personmodels\PersonEdit.cs" />
