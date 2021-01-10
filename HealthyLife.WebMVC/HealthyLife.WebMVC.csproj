@@ -259,10 +259,10 @@
     <Content Include="Views\Diet\Details.cshtml" />
     <Content Include="Views\Diet\Edit.cshtml" />
     <Content Include="Views\Diet\Delete.cshtml" />
+    <Content Include="Views\Happiness\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Happiness\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
