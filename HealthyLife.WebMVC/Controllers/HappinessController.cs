@@ -79,6 +79,54 @@ namespace HealthyLife.WebMVC.Controllers
             return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, HappinessEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.HappinessId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateHappinessService();
+
+            if (service.UpdateHappiness(model))
+            {
+                TempData["SaveResult"] = "Your entry was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "Your entry could not be updated.");
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
+            return View(model);
+        }
+
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateHappinessService();
+            var model = svc.GetHappinessById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            var service = CreateHappinessService();
+
+            service.DeleteHappiness(id);
+
+            TempData["SaveResult"] = "Your entry was deleted";
+
+            return RedirectToAction("Index");
+        }
+
         private HappinessService CreateHappinessService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
