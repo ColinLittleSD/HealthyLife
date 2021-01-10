@@ -10,6 +10,7 @@ namespace HappyLife.Models.happinessmodels
     public class HappinessCreate
     {
         [Required]
+        [Display(Name = "Happiness level 1-10")]
         public int HappinessLevel { get; set; }
         [Required]
         [Display(Name = "What emotions/feelings did you have?")]

@@ -1,5 +1,8 @@
 ﻿using HappyLife.Models;
 using HappyLife.Models.happinessmodels;
+using HappyLife.Services;
+using HealthyLife.Data;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +13,21 @@ namespace HealthyLife.WebMVC.Controllers
 {
     public class HappinessController : Controller
     {
+        private ApplicationDbContext _db = new ApplicationDbContext();
         [Authorize]
         // GET: Happiness
         public ActionResult Index()
         {
-            var model = new HappinessListItem[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new HappinessService(userId);
+            var model = service.GetHappinesses();
+
             return View(model);
         }
 
         public ActionResult Create()
         {
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name");
             return View();
         }
 
@@ -27,11 +35,28 @@ namespace HealthyLife.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(HappinessCreate model)
         {
-            if (ModelState.IsValid)
-            {
+            if (!ModelState.IsValid) return View(model);
 
-            }
+            var service = CreateHappinessService();
+
+            if (service.CreateHappiness(model))
+            {
+                TempData["SaveResult"] = "Your entry was created.";
+                return RedirectToAction("Index");
+            };
+
+
+            ModelState.AddModelError("", "Entry could not be created.");
+            ViewBag.PersonId = new SelectList(_db.Persons, "PersonId", "Name", model.PersonId);
+
             return View(model);
+        }
+
+        private HappinessService CreateHappinessService()
+        {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new HappinessService(userId);
+            return service;
         }
     }
 }
