@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Diet.cs" />
     <Compile Include="Exercise.cs" />
+    <Compile Include="Happiness.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\202101021828103_InitialCreate.cs" />
     <Compile Include="Migrations\202101021828103_InitialCreate.Designer.cs">
@@ -72,6 +73,10 @@
     <Compile Include="Migrations\202101071543183_adding-diet.cs" />
     <Compile Include="Migrations\202101071543183_adding-diet.Designer.cs">
       <DependentUpon>202101071543183_adding-diet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101092321434_adding-happiness.cs" />
+    <Compile Include="Migrations\202101092321434_adding-happiness.Designer.cs">
+      <DependentUpon>202101092321434_adding-happiness.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Person.cs" />
@@ -94,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101071543183_adding-diet.resx">
       <DependentUpon>202101071543183_adding-diet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101092321434_adding-happiness.resx">
+      <DependentUpon>202101092321434_adding-happiness.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

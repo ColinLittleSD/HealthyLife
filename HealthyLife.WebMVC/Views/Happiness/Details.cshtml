@@ -1,0 +1,66 @@
+﻿@model HappyLife.Models.happinessmodels.HappinessDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HappinessDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HappinessId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HappinessId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HappinessLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HappinessLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HappinessId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
