@@ -92,6 +92,19 @@
             </dd>
         }
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Happinesses)
+        </dt>
+
+        @foreach (var happiness in Model.Happinesses)
+        {
+            <dd>
+                @Html.DisplayFor(modelItem => happiness.HappinessLevel) |
+                @Html.DisplayFor(modelItem => happiness.EmotionNotes) |
+                @Html.DisplayFor(modelItem => happiness.Date) |
+            </dd>
+        }
+
 
     </dl>
 </div>

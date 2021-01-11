@@ -14,6 +14,8 @@ namespace HappyLife.Models
         public int HoursSlept { get; set; }
         [Required]
         [Display(Name ="What time did you wake up?")]
+        [DataType(DataType.Time)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:H:mm")]
         public TimeSpan WakeUpTime { get; set; }
         [Required]
         public DateTime Date { get; set; }

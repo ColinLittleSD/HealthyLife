@@ -23,5 +23,7 @@ namespace HappyLife.Models
         public List<SleepListItem> Sleeps { get; set; } = new List<SleepListItem>();
         public List<ExerciseListItem> Exercises { get; set; } = new List<ExerciseListItem>();
         public List<DietListItem> Diets { get; set; } = new List<DietListItem>();
+        public List<HappinessListItem> Happinesses { get; set; } = new List<HappinessListItem>();
+
     }
 }

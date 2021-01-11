@@ -100,6 +100,13 @@ namespace HappyLife.Services
                             Snacks = n.Snacks,
                             Liquids = n.Liquids,
                             Date = n.Date
+                        }).ToList(),
+                        Happinesses = entity.Happinesses.Select(n => new HappinessListItem()
+                        {
+                            HappinessId = n.HappinessId,
+                            HappinessLevel = n.HappinessLevel,
+                            EmotionNotes = n.EmotionNotes,
+                            Date = n.Date
                         }).ToList()
 
                     };
