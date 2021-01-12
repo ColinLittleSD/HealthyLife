@@ -24,7 +24,9 @@ namespace HealthyLife.WebMVC
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Index.css",
+                      "~/Content/Site.css"));
+                      
         }
     }
 }

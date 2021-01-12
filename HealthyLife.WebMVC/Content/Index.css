@@ -1,0 +1,26 @@
+﻿
+
+.home-jumbotron {
+    background-color: aquamarine
+}
+
+.navbar-background {
+    background-color: darkblue
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: lightcoral;
+}
+
+.navbar-inverse {
+    background-color: silver;
+    border-color: tan;
+}
+
+ .navbar-inverse .navbar-brand {
+        color: black;
+ }
+
+body {
+    background: url(../Assets/background.jpg);
+}
