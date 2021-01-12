@@ -1,7 +1,8 @@
 ﻿
 
 .home-jumbotron {
-    background-color: aquamarine
+    background-color: aquamarine;
+
 }
 
 .navbar-background {
@@ -9,18 +10,22 @@
 }
 
 .navbar-inverse .navbar-nav > li > a {
-    color: lightcoral;
+    color: darkgray;
 }
 
 .navbar-inverse {
-    background-color: silver;
-    border-color: tan;
+    background-color: powderblue;
+    border-color: white;
+    border-width: thick;
+    border-radius: 25px
+
 }
 
  .navbar-inverse .navbar-brand {
-        color: black;
+        color: darkgray;
  }
 
 body {
-    background: url(../Assets/background.jpg);
+    background-image: url(../Assets/background.jpg);
+    background-repeat:repeat;
 }
