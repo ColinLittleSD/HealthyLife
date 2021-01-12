@@ -12,7 +12,7 @@ namespace HappyLife.Models
         
         public int SleepId { get; set; }
        
-        [Display(Name = "How long did you sleep?")]
+        [Display(Name = "Hours slept?")]
         public int HoursSlept { get; set; }
         [Display(Name = "What time did you wake up?")]
         public TimeSpan WakeUpTime { get; set; }

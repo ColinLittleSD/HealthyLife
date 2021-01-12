@@ -15,7 +15,7 @@ namespace HappyLife.Data
         [Required]
         public Guid OwnerId { get; set; }
         [Required]
-        [Display(Name = "How long did you sleep?")]
+        [Display(Name = "Hours slept?")]
         public int HoursSlept { get; set; }
         [Required]
         [Display(Name = "What time did you wake up?")]
