@@ -2,6 +2,7 @@
 
 .home-jumbotron {
     background-color: aquamarine;
+    font-family: Corbel;
 
 }
 
@@ -28,4 +29,8 @@
 body {
     background-image: url(../Assets/background.jpg);
     background-repeat:repeat;
+}
+
+h2 {
+    font-family: 'Bookman Old Style'
 }
