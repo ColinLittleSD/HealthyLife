@@ -18,7 +18,7 @@
     <div class="col-md-4">
         <h2>What's coming in version 2.0?</h2>
         <p>This is just the beginning of the features and look we want to give to our users. We have big plans on the way, to improve your experience using HappyLife.</p>
-        <p><a class="btn btn-success" href="https://localhost:44336/Home/About">Learn more &raquo;</a></p>
+        <a class="btn btn-success" @Html.ActionLink("Learn More", "About")></a>
     </div>
 
 </div>
@@ -26,5 +26,5 @@
 <div class="jumbotron home-jumbotron" style="border:dotted">
     <h1>HappyLife</h1>
     <p class="lead">HappyLife is a new spin on health and wellness applications. The goal is for the user to track their habits every day that correlate to happiness. Sleeping, eating, and exercise have shown to directly influence mood. The purpose is to look at your happiest days, and find correlations in your habits. Did you sleep 8 hours? Did you eat a healthy breakfast and drink enough water? Go for a run? Well, pay attention to your good days, and improve on your bad ones!</p>
-    <p><a href="https://localhost:44336/Person/Index" class="btn btn-primary btn-lg">Get Started &raquo;</a></p>
+    <a class="btn btn-success" @Html.ActionLink("Get Started", "Index", "Person")></a>
 </div>
