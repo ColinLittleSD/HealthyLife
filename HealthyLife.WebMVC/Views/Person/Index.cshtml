@@ -1,0 +1,63 @@
+﻿@model IEnumerable<HappyLife.Models.PersonListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User</h2>
+<h3>Here's how to get started. First, add in your information. You only have to do this at the beginning of your journey. After finishing here, you'll want to add in sleep, diet, and exercise daily. You can do it multiple times a day.</h3>
+
+<p>
+    @Html.ActionLink("Create New User", "Create")
+</p>
+@if (TempData.ContainsKey("SaveResult"))
+{
+    <div class="alert alert-success fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HealthGoals)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateStarted)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Weight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HealthGoals)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateStarted)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PersonId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PersonId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PersonId })
+            </td>
+        </tr>
+    }
+
+</table>

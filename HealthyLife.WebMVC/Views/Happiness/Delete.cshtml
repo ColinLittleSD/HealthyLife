@@ -1,0 +1,72 @@
+﻿@model HappyLife.Models.happinessmodels.HappinessDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HappinessDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.HappinessId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HappinessId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HappinessLevel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HappinessLevel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmotionNotes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmotionNotes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

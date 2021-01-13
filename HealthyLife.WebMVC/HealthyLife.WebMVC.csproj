@@ -168,8 +168,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DietController.cs" />
+    <Compile Include="Controllers\ExerciseController.cs" />
+    <Compile Include="Controllers\HappinessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\SleepController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,10 +184,12 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\background.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Index.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -234,6 +241,31 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Person\Index.cshtml" />
+    <Content Include="Views\Person\Create.cshtml" />
+    <Content Include="Views\Person\Details.cshtml" />
+    <Content Include="Views\Person\Edit.cshtml" />
+    <Content Include="Views\Person\Delete.cshtml" />
+    <Content Include="Views\Sleep\Index.cshtml" />
+    <Content Include="Views\Sleep\Create.cshtml" />
+    <Content Include="Views\Sleep\Details.cshtml" />
+    <Content Include="Views\Sleep\Edit.cshtml" />
+    <Content Include="Views\Sleep\Delete.cshtml" />
+    <Content Include="Views\Exercise\Index.cshtml" />
+    <Content Include="Views\Exercise\Create.cshtml" />
+    <Content Include="Views\Exercise\Details.cshtml" />
+    <Content Include="Views\Exercise\Edit.cshtml" />
+    <Content Include="Views\Exercise\Delete.cshtml" />
+    <Content Include="Views\Diet\Index.cshtml" />
+    <Content Include="Views\Diet\Create.cshtml" />
+    <Content Include="Views\Diet\Details.cshtml" />
+    <Content Include="Views\Diet\Edit.cshtml" />
+    <Content Include="Views\Diet\Delete.cshtml" />
+    <Content Include="Views\Happiness\Index.cshtml" />
+    <Content Include="Views\Happiness\Create.cshtml" />
+    <Content Include="Views\Happiness\Details.cshtml" />
+    <Content Include="Views\Happiness\Edit.cshtml" />
+    <Content Include="Views\Happiness\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

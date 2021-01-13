@@ -54,8 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diet.cs" />
+    <Compile Include="Exercise.cs" />
+    <Compile Include="Happiness.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sleep.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
