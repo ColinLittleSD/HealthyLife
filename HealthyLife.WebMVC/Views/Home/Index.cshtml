@@ -2,30 +2,29 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Need Some Motivation?</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Sometimes the hardest part about getting healthy and happy, is just getting started. Need some motivation?
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <p><a class="btn btn-success" href=https://www.youtube.com/watch?v=ZXsQAXx_ao0> Click Me &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Feeling more anxious than ever during Covid?</h2>
+        <p>One of the main goals of this app is to help reduce stress and anxiety. Covid has been extremely hard on everyone's mental health. Want to learn more ways to reduce anxiety and stress during these weird times?</p>
+        <p><a class="btn btn-success" href="https://adaa.org/learn-from-us/from-the-experts/blog-posts/consumer/top-ten-covid-19-anxiety-reduction-strategies">Read more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>What's coming in version 2.0?</h2>
+        <p>This is just the beginning of the features and look we want to give to our users. We have big plans on the way, to improve your experience using HappyLife.</p>
+        <a class="btn btn-success" @Html.ActionLink("Learn More", "About")></a>
     </div>
+
+</div>
+
+<div class="jumbotron home-jumbotron" style="border:dotted">
+    <h1>HappyLife</h1>
+    <p class="lead">HappyLife is a new spin on health and wellness applications. The goal is for the user to track their habits every day that correlate to happiness. Sleeping, eating, and exercise have shown to directly influence mood. The purpose is to look at your happiest days, and find correlations in your habits. Did you sleep 8 hours? Did you eat a healthy breakfast and drink enough water? Go for a run? Well, pay attention to your good days, and improve on your bad ones!</p>
+    <a class="btn btn-success" @Html.ActionLink("Get Started", "Index", "Person")></a>
 </div>

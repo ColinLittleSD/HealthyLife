@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Sleep Data</h2>
 
 <p>
     @Html.ActionLink("Create New Entry", "Create")
@@ -30,13 +30,13 @@
             @Html.DisplayNameFor(model => model.WakeUpTime)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.PersonName)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Date)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.SleepId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PersonName)
         </th>
         <th></th>
     </tr>

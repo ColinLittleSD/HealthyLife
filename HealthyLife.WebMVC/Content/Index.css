@@ -1,0 +1,42 @@
+﻿
+
+.home-jumbotron {
+    background-color: aquamarine;
+    font-family: Corbel;
+
+}
+
+.navbar-background {
+    background-color: darkblue
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: darkgray;
+}
+
+.navbar-inverse {
+    background-color: powderblue;
+    border-color: white;
+    border-width: thick;
+    border-radius: 25px
+
+}
+
+ .navbar-inverse .navbar-brand {
+        color: darkgray;
+ }
+
+body {
+    background-image: url(../Assets/background.jpg);
+    background-repeat:repeat;
+}
+
+h2 {
+    font-family: 'Bookman Old Style'
+}
+
+h3 {
+    font-family: Corbel
+}
+
+
